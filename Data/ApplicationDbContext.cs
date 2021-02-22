@@ -1,4 +1,5 @@
-﻿using Doctor_MVC_Miniproject3.Models;
+﻿using Docter_MVC_Miniproject3.Models;
+using Doctor_MVC_Miniproject3.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,5 +17,6 @@ namespace Docter_MVC_Miniproject3.Data
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+       
     }
 }

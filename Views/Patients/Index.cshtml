@@ -3,8 +3,25 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="row">
+<div class="col-md-4">
+<h2>Choose your Doctor & Book your appointment</h2>
+</div>
+<div class="col-md-4">
+<h2></h2>
+</div>
+<div class="col-md-4">
+<h1>
+    <a asp-action="Create">Book here</a>
+</h1>
+</div>
 
-<h1>Choose your doctor, availabilities acommand Book your appointment. </h1>
+</div>
+<br />
+<br />
+<br />
+<hr />
+
 <div class="row">
      <div class="col-md-3">
         <h2>Dr.Amanda</h2>
@@ -37,10 +54,10 @@
     </div>
     
   </div>
+  <br />
+  <hr />
 
-<p>
-    <a asp-action="Create">Book here</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -51,7 +68,10 @@
                 @Html.DisplayNameFor(model => model.Age)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTime)
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DoctorName)
@@ -72,7 +92,10 @@
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DoctorName)

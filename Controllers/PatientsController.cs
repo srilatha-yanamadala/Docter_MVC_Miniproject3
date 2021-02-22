@@ -54,7 +54,7 @@ namespace Docter_MVC_Miniproject3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PatientId,PatientName,Age,DateTime,DoctorName,Email")] Patient patient)
+        public async Task<IActionResult> Create([Bind("PatientId,PatientName,Age,Start,End,DoctorName,Email")] Patient patient)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +64,7 @@ namespace Docter_MVC_Miniproject3.Controllers
             }
             return View(patient);
         }
+
 
         // GET: Patients/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -86,7 +87,7 @@ namespace Docter_MVC_Miniproject3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PatientId,PatientName,Age,DateTime,DoctorName,Email")] Patient patient)
+        public async Task<IActionResult> Edit(int id, [Bind("PatientId,PatientName,Age,Start,End,DoctorName,Email")] Patient patient)
         {
             if (id != patient.PatientId)
             {
