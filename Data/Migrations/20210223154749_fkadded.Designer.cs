@@ -4,35 +4,22 @@ using Docter_MVC_Miniproject3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Docter_MVC_Miniproject3.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210223154749_fkadded")]
+    partial class fkadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("DoctorPatient", b =>
-                {
-                    b.Property<int>("DoctorsDoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PatientsPatientId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DoctorsDoctorId", "PatientsPatientId");
-
-                    b.HasIndex("PatientsPatientId");
-
-                    b.ToTable("DoctorPatient");
-                });
 
             modelBuilder.Entity("Doctor_MVC_Miniproject3.Models.Appointment", b =>
                 {
@@ -72,10 +59,15 @@ namespace Docter_MVC_Miniproject3.Data.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Specliazation")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DoctorId");
+
+                    b.HasIndex("PatientId");
 
                     b.ToTable("Doctors");
                 });
@@ -310,25 +302,10 @@ namespace Docter_MVC_Miniproject3.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("DoctorPatient", b =>
-                {
-                    b.HasOne("Doctor_MVC_Miniproject3.Models.Doctor", null)
-                        .WithMany()
-                        .HasForeignKey("DoctorsDoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Doctor_MVC_Miniproject3.Models.Patient", null)
-                        .WithMany()
-                        .HasForeignKey("PatientsPatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Doctor_MVC_Miniproject3.Models.Appointment", b =>
                 {
                     b.HasOne("Doctor_MVC_Miniproject3.Models.Doctor", "Doctor")
-                        .WithMany()
+                        .WithMany("Appointments")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -342,6 +319,13 @@ namespace Docter_MVC_Miniproject3.Data.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("Doctor_MVC_Miniproject3.Models.Doctor", b =>
+                {
+                    b.HasOne("Doctor_MVC_Miniproject3.Models.Patient", null)
+                        .WithMany("Doctors")
+                        .HasForeignKey("PatientId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -393,6 +377,16 @@ namespace Docter_MVC_Miniproject3.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Doctor_MVC_Miniproject3.Models.Doctor", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("Doctor_MVC_Miniproject3.Models.Patient", b =>
+                {
+                    b.Navigation("Doctors");
                 });
 #pragma warning restore 612, 618
         }

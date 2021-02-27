@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,21 +12,21 @@ namespace Doctor_MVC_Miniproject3.Models
         {
         }
 
-        public Doctor(int doctorId, string dOctorName, string specliazation, string imageUrl, List<Appointment> appointments)
+        public Doctor( string dOctorName, string specliazation, string imageUrl)
         {
-            DoctorId = doctorId;
+            
             DOctorName = dOctorName;
             Specliazation = specliazation;
             ImageUrl = imageUrl;
-            Appointments = appointments;
+           
         }
-
+        [Key]
         public int DoctorId { get; set; }
         public string  DOctorName { get; set; }
         public string Specliazation { get; set; }
 
         public string ImageUrl { get; set; }
-        public List<Appointment> Appointments { get; set; }
+        public List<Patient> Patients { get; set; }
 
     }
 }

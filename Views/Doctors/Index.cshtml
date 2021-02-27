@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Doctor_MVC_Miniproject3.Models.Doctor>
+@using Doctor_MVC_Miniproject3.Models
 
 @{
     ViewData["Title"] = "Index";
@@ -6,7 +7,8 @@
 <body class="Doctorbody">
 <h1>Index</h1>
 <h3>
- <a asp-action="/Patients/Details">see here your appointments</a></h3>
+<a  asp-controller="Appointments">see here your appointments</a></h3>
+  <!-- <a Response.Redirect(Url.Action("action", "Patientcontroller"))>see</a> -->
 
            
 <p>

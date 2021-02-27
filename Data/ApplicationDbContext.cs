@@ -1,10 +1,6 @@
-﻿using Docter_MVC_Miniproject3.Models;
-using Doctor_MVC_Miniproject3.Models;
+﻿using Doctor_MVC_Miniproject3.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Docter_MVC_Miniproject3.Data
 {

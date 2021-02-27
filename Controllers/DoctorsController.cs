@@ -18,8 +18,9 @@ namespace Docter_MVC_Miniproject3.Controllers
         {
             _context = context;
         }
+      
 
-        // GET: Doctors
+              // GET: Doctors
         public async Task<IActionResult> Index()
         {
             return View(await _context.Doctors.ToListAsync());

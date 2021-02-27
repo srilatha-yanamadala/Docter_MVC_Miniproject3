@@ -60,6 +60,18 @@ namespace Docter_MVC_Miniproject3.Controllers
             {
                 _context.Add(patient);
                 await _context.SaveChangesAsync();
+
+                Console.WriteLine("Before adding appointment");
+
+                //Add to Appointment table also here.
+                Appointment appointment = new Appointment();
+                //TODO: Fetch doctor Id by doctor name from DB.
+                appointment.DoctorId = 3;
+                appointment.Patient = patient;
+
+                _context.Add(appointment);
+                await _context.SaveChangesAsync();
+                Console.WriteLine("After adding appointment");
                 return RedirectToAction(nameof(Index));
             }
             return View(patient);
