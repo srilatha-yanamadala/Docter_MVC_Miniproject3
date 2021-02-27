@@ -59,7 +59,7 @@ namespace Docter_MVC_Miniproject3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AppointmentId,DateTime,DoctorId,PatientId")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("AppointmentId,Start,End,DoctorId,PatientId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Docter_MVC_Miniproject3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AppointmentId,DateTime,DoctorId,PatientId")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("AppointmentId,Start,End,DoctorId,PatientId")] Appointment appointment)
         {
             if (id != appointment.AppointmentId)
             {

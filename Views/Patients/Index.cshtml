@@ -12,9 +12,12 @@
         <br />
         <hr />
         <div class="row">
+            
             <div class="col-md-3">
 
                 <div class="container py-5">
+                   
+                    
                     <div class="card">
                         <div class="card-header">
                             <h5>Dr,Amanda</h5>
@@ -29,15 +32,18 @@
                             </h3>
                         </div>
                     </div>
+                    
+                    
                 </div>
 
             </div>
             <div class="col-md-3">
 
                 <div class="container py-5">
+                    
                     <div class="card">
                         <div class="card-header">
-                            <h5>Dr,Suhas</h5>
+                            <h5>Dr,Srilu</h5>
                         </div>
                         <div class="card-body">
                             <img class="card-img" src="~/images/img-2.jpeg" alt="doctor image" />
@@ -49,17 +55,18 @@
                             </h3>
                         </div>
                     </div>
+                    
                 </div>
 
             </div>
             <div class="col-md-3">
 
                 <div class="container py-5">
-                    <form action="Patients/Create" method="POST">
+                    
 
                         <div class="card">
                             <div class="card-header">
-                                <h5>Dr,Srilu</h5>
+                                <h5>Dr,Suhas</h5>
                             </div>
                             <div class="card-body">
                                 <img class="card-img" src="~/images/img-3.jpeg" alt="doctor image" />
@@ -67,13 +74,12 @@
                             <div class="card-footer">
                                 <h5>Cardiolagist</h5>
                                 <h3>
-                                    <a id="103" class="btn btn-info rounded-0" asp-action="Create">Book here</a>
+                                    <a id="103" class="btn btn-info rounded-0"  asp-action="Create">Book here</a>
                                 </h3>
                             </div>
                         </div>
-                        <input type="hidden" value=""103" name="doctorId" />
-                        <input type="submit" value="Book Appointment" />
-                    </form>
+                        
+                    
 
 
                 </div>
@@ -82,7 +88,7 @@
             <div class="col-md-3">
 
                 <div class="container py-5">
-                    <div class="card">
+                                        <div class="card">
                         <div class="card-header">
                             <h5>Dr,Amala</h5>
                         </div>
@@ -94,11 +100,16 @@
                             <h3>
                                 <a id="104" class="btn btn-info rounded-0" asp-action="Create">Book here</a>
                             </h3>
+                            <td>
+
+</td>
                         </div>
                     </div>
+                   
                 </div>
 
             </div>
+            
         </div>
 
 
@@ -122,9 +133,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.End)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DoctorName)
-                    </th>
+                   
                     <th>
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
@@ -147,12 +156,15 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.End)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DoctorName)
-                    </td>
+                    
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
+                     <td>
+                <a asp-action="Edit" asp-route-id="@item.PatientId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PatientId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PatientId">Delete</a>
+            </td>
 
                 </tr>
                 }

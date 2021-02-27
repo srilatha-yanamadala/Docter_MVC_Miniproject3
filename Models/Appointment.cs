@@ -13,11 +13,12 @@ namespace Doctor_MVC_Miniproject3.Models
         {
         }
 
-        public Appointment( DateTime dateTime, Doctor doctor, Patient patient)
+        public Appointment( DateTime dateTime, Doctor doctor, Patient patient, DateTime start, DateTime end )
         {
-            
-            DateTime = dateTime;
-           
+
+            Start = start;
+            End = end;
+
             Doctor = doctor;
             
             Patient = patient;
@@ -25,7 +26,8 @@ namespace Doctor_MVC_Miniproject3.Models
 
         
         public int AppointmentId { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
 
         [Display(Name= "Doctor")]
         public int DoctorId { get; set; }
