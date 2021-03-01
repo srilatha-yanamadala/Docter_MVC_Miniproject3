@@ -14,6 +14,8 @@ namespace Docter_MVC_Miniproject3.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        public int Doctorid { get; private set; }
+
         public AppointmentsController(ApplicationDbContext context)
         {
             _context = context;
@@ -25,6 +27,7 @@ namespace Docter_MVC_Miniproject3.Controllers
             var applicationDbContext = _context.Appointments.Include(a => a.Doctor).Include(a => a.Patient);
             return View(await applicationDbContext.ToListAsync());
         }
+       
 
         // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)

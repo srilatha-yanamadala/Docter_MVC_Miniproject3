@@ -54,7 +54,8 @@ namespace Docter_MVC_Miniproject3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PatientId,PatientName,Age,Start,End,DoctorName,Email")] Patient patient)
+        public async Task<IActionResult> Create(
+            [Bind("PatientId,PatientName,Age,Start,End,DoctorName,Email")] Patient patient,int doctorId)
         {
             if (ModelState.IsValid)
             {
@@ -65,8 +66,21 @@ namespace Docter_MVC_Miniproject3.Controllers
 
                 //Add to Appointment table also here.
                 Appointment appointment = new Appointment();
-                //TODO: Fetch doctor Id by doctor name from DB.
-                appointment.DoctorId = 3;
+
+                if (patient == null)
+                {
+                    return NotFound();
+                }
+
+                //TODO: Add DoctorName as a dropdown in /patient/create.cshtml and assign the DocName parameter here, instead of the hardcoded srilu
+                //String DoctorName = "Srilu";
+                //String docValue = formCollection["DocNameId"];
+
+
+                //Doctor doc = _context.Doctors.Where(d => d.DOctorName == patient.DoctorName).FirstOrDefault();
+
+
+                appointment.DoctorId = int.Parse(patient.DoctorName);
                 appointment.Patient = patient;
 
                 _context.Add(appointment);
@@ -76,8 +90,19 @@ namespace Docter_MVC_Miniproject3.Controllers
             }
             return View(patient);
         }
+        public ActionResult GetDoctorId()
+        {
+            Appointment appointment = new Appointment();
+            var doctors = (from Doctors in _context.Doctors select Doctors);
+            
 
+            _context.Add(appointment);           
+            
 
+            return View(doctors);
+            
+        }
+        
         // GET: Patients/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

@@ -1,8 +1,10 @@
 ﻿@model Doctor_MVC_Miniproject3.Models.Patient
+
 @using Docter_MVC_Miniproject3.Models
 
 @{
     ViewData["Title"] = "Create";
+
 }
 
 <h1>Create</h1>
@@ -10,9 +12,8 @@
 <h4>Patient</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PatientName" class="control-label"></label>
@@ -34,16 +35,40 @@
                 <input asp-for="End" class="form-control" />
                 <span asp-validation-for="End" class="text-danger"></span>
             </div>
-            
+
+            <!-- Add Doctor Name dropdown here, read values from Doctors model and show names, instead of hard coding-->
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <select id="DoctorName" name="DoctorName">
+                    <option value="">--Select One--</option>
+                    <option value="1">Amanda</option>
+                    <option value="2">Srilu</option>
+                    <option value="3">Suhas</option>  
+                    <option value="4">Amala</option>                                         
+                </select>  
+
+               @* @Html.LabelFor(x => Model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(x => Model.DoctorName, new SelectList(Model.Doctors, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Doctor"})
+                    @Html.ValidationMessageFor(x => x.DoctorName, "", new { @class = "text-danger" })
+                </div> *@
+            </div>
+
+
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
+            <input type="hidden" name="docterId" value=ViewContext.RouteData.Values["id"] />
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
+    </div>
+    <div class="col-md-6">
+      
     </div>
 </div>
 

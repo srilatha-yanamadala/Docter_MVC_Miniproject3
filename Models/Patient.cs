@@ -28,7 +28,7 @@ namespace Doctor_MVC_Miniproject3.Models
         public int PatientId { get; set; }
         public string PatientName { get; set; }
         public int Age { get; set; }
-       public List<Doctor> Doctors { get; set; }
+        public IEnumerable<Doctor> Doctors { get; set; }
        
 
 
