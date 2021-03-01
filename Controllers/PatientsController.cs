@@ -187,5 +187,7 @@ namespace Docter_MVC_Miniproject3.Controllers
         {
             return _context.Patients.Any(e => e.PatientId == id);
         }
+
+      
     }
 }

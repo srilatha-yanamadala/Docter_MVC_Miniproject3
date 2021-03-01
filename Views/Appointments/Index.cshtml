@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
+<h3>Here are the patients details with respective doctor name.</h3>
+<hr />
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+
+<table  class="table table-hover">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Start)
@@ -42,11 +41,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Patient.PatientName)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AppointmentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AppointmentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AppointmentId">Delete</a>
-            </td>
+           
         </tr>
 }
     </tbody>

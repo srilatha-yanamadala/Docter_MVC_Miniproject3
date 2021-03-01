@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,8 +38,11 @@ namespace Doctor_MVC_Miniproject3.Models
         public DateTime End { get; set; }
         public string DoctorName { get; set; }
         public string Email { get; set; }
-       
 
        
+
     }
+   
+
+
 }
