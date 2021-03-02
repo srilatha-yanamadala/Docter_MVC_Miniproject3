@@ -4,21 +4,27 @@
 @{
     ViewData["Title"] = "Index";
 }
-<body class="Doctorbody">
+<body class="Doctorsbody">
 <h1 style="Text-Align:center;">Welcome to Doctor's page!</h1>
 <hr />
-<h3>
-<a  asp-controller="Appointments">see your appointments here</a></h3>
+<br />
+<div class="row">
+    <div class="col-md-6">
+       <button type="button" class="btn btn-outline-primary"> <a  asp-controller="Appointments">see your appointments here</a></button>
+       </div>
+       <div class="col-md-6">
+         <button type="button" class="btn btn-outline-primary"> <a asp-action="Create">Add new Doctors here</a></button>
+       </div>
+</div>
+
+
   <!-- <a Response.Redirect(Url.Action("action", "Patientcontroller"))>see</a> -->
   <br />
   <hr />
-
            
-<p>
-    <a asp-action="Create">Add new Doctors here</a>
-</p>
-<br /><hr />
-<table  class="table table-hover">
+
+
+<table class="table table-hover">
     <thead>
         <tr class="p-3 mb-2 bg-dark text-white">
             <th>

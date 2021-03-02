@@ -4,8 +4,8 @@ for details on configuring this project to bundle and minify static web assets. 
     background-image: url("../images/doctor.png");
     background-repeat: repeat-x;
 }
-.Doctorbody{
-    background-color:lightblue;
+.Doctorsbody {
+    background-color: azure;
 }
 .Patientbody{
     background-color:lightblue;
@@ -18,7 +18,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #000000;
 }
 
 .btn-primary {
